@@ -1,0 +1,86 @@
+# Install LAMP on Debian 9 blank server 
+
+# password generator: https://passwordsgenerator.net/
+
+# variables can be changed with replace function: 
+# username - john
+# domain   - domain.com
+# alias    - domain.org
+
+# check debian version
+cat /etc/issue
+
+# check hostname to see default page
+hostname
+hostname -f
+
+# install apache & mod_rewrite
+apt-get update
+apt-get upgrade --show-upgraded
+apt-get install apache2
+a2enmod rewrite
+apachectl restart
+
+# install basic stuff
+apt-get install inetutils-traceroute sudo curl
+
+# add new user
+adduser john
+ls -lah john/
+groups john
+
+# add user into sudo group
+usermod -aG sudo john
+groups john
+
+# add user into www-data group
+usermod -aG www-data john
+groups john
+
+# install php 7.0 (7.1, 7.2 is not available in apt-get yet)
+apt-get install php7.0 php7.0-mysql php7.0-cli
+
+# install mysql/mariaDB
+apt-get install mysql-server
+mysql_secure_installation
+
+# setup virtual host
+nano /etc/apache2/sites-available/domain.com.conf
+cd /etc/apache2/sites-enabled/
+ln -s ../sites-available/domain.com.conf 
+apachectl restart
+
+# <VirtualHost *:80>
+#      ServerAdmin glodov@gmail.com
+# 
+#      ServerName domain.com
+#      ServerAlias domain.org
+# 
+#      <Directory "/home/john/domain.com">
+#         Options FollowSymLinks
+#         AllowOverride All
+# 
+#         Order allow,deny
+#         Allow from all
+#      </Directory>
+# 
+#      DocumentRoot /home/john/domain.com/public_html/
+#      ErrorLog /home/john/domain.com/error.log
+#      CustomLog /home/john/domain.com/access.log combined
+# </VirtualHost>
+
+# setup required extensions for composer
+sudo apt-get install php-mbstring php-zip
+
+# setup composer
+wget https://getcomposer.org/installer
+sudo php installer --install-dir=/usr/local/bin --filename=composer
+
+# install nodejs
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# install yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn
