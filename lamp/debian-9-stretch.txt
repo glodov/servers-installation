@@ -72,6 +72,9 @@ apachectl restart
 # setup required extensions for composer
 sudo apt-get install php-mbstring php-zip
 
+# setup standard php modules
+sudo apt-get install curl php-curl php-gd
+
 # setup composer
 wget https://getcomposer.org/installer
 sudo php installer --install-dir=/usr/local/bin --filename=composer
