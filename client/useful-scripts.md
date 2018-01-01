@@ -7,13 +7,13 @@ Working with servers from client side.
 
 ## Clear DNS cache
 
-### Mac OSX
+### ![Apple](http://yaro.info/assets/brand/apple/apple-logo@24.png) Mac OSX
 `sudo killall -HUP mDNSResponder`
 
-### Windows
+### ![Windows](http://yaro.info/assets/brand/microsoft/windows-logo@24.png) Windows
 `ipconfig /flushdns`
 
-### Linux
+### ![Linux](http://yaro.info/assets/brand/linux/linux-logo@24.png) Linux
 `/etc/init.d/nscd restart`
 
 OR
@@ -24,7 +24,7 @@ OR
 
 `service nscd reload`
 
--
+--
 
 `sudo /etc/init.d/dnsmasq restart`
 
@@ -32,13 +32,13 @@ OR
 
 `service dnsmasq restart`
 
--
+--
 
 `sudo service network-manager restart`
 
 
 ## Retrieve DNS info
 
-### Mac OSX, Linux
+### ![Apple](http://yaro.info/assets/brand/apple/apple-logo@24.png) Mac OSX, ![Linux](http://yaro.info/assets/brand/linux/linux-logo@24.png) Linux
 
 `dig NS www.domain.com`
