@@ -8,37 +8,34 @@ Working with servers from client side.
 ## Clear DNS cache
 
 ### ![Apple](http://yaro.info/assets/brand/apple/apple-logo@24.png) Mac OSX
-`sudo killall -HUP mDNSResponder`
+
+	sudo killall -HUP mDNSResponder
 
 ### ![Windows](http://yaro.info/assets/brand/microsoft/windows-logo@24.png) Windows
-`ipconfig /flushdns`
+
+	ipconfig /flushdns
 
 ### ![Linux](http://yaro.info/assets/brand/linux/linux-logo@24.png) Linux
-`/etc/init.d/nscd restart`
 
-OR
+	/etc/init.d/nscd restart
+	OR
+	service nscd restart
+	OR
+	service nscd reload
 
-`service nscd restart`
+Another way 
 
-OR
+	sudo /etc/init.d/dnsmasq restart
+	OR
+	service dnsmasq restart
 
-`service nscd reload`
+And one more
 
---
-
-`sudo /etc/init.d/dnsmasq restart`
-
-OR
-
-`service dnsmasq restart`
-
---
-
-`sudo service network-manager restart`
+	sudo service network-manager restart
 
 
-## Retrieve NS info
+## Retrieve DNS info
 
 ### ![Apple](http://yaro.info/assets/brand/apple/apple-logo@24.png) Mac OSX, ![Linux](http://yaro.info/assets/brand/linux/linux-logo@24.png) Linux
 
-`dig NS www.domain.com`
+	dig NS www.domain.com
