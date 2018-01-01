@@ -37,7 +37,7 @@ OR
 `sudo service network-manager restart`
 
 
-## Retrieve DNS info
+## Retrieve NS info
 
 ### ![Apple](http://yaro.info/assets/brand/apple/apple-logo@24.png) Mac OSX, ![Linux](http://yaro.info/assets/brand/linux/linux-logo@24.png) Linux
 
