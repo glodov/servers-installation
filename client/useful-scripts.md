@@ -10,6 +10,7 @@ Working with servers from client side.
 ### ![Apple](http://yaro.info/assets/brand/apple/apple-logo@24.png) Mac OSX
 
 	sudo killall -HUP mDNSResponder
+	sudo dscacheutil -flushcache
 
 ### ![Windows](http://yaro.info/assets/brand/microsoft/windows-logo@24.png) Windows
 
