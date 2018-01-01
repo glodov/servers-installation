@@ -37,7 +37,7 @@ OR
 `sudo service network-manager restart`
 
 
-## Retrieve DNS info
+## Retrieve NS info
 
 ### Mac OSX, Linux
 
