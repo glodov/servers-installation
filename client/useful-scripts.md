@@ -40,3 +40,22 @@ And one more
 ### ![Apple](http://yaro.info/assets/brand/apple/apple-logo@24.png) Mac OSX, ![Linux](http://yaro.info/assets/brand/linux/linux-logo@24.png) Linux
 
 	dig NS www.domain.com
+	
+## Tar commands
+
+### Create a tar archive
+
+	tar -cvf archive.tar /path/to/directory-or-file
+	
+### Create a tar gzip archive
+
+	tar -czvf archive.tar.gz /path/to/directory-or-file 
+	
+### Extract a tar archive
+
+	tar -xvf archive.tar [-C /path/where/to/extract]
+
+### Extract a tar gzip archive
+
+	tar -xzvf archive.tar.gz [-C /path/where/to/extract]
+	
